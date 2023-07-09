@@ -1,114 +1,23 @@
+* {
+  font-family: sans-serif;
+}
+input,
 button {
-  color: white;
-  font-weight: 600;
-  float: right;
+  font-size: 20px;
+  padding: 10px;
   border-radius: 5px;
-  border: none;
-  background-color: rgb(6, 6, 6);
-  padding: 12px 10px;
-  margin-top: -50px;
 }
-button:hover {
-  transition: 200ms;
-  scale: 1.03;
-  background-color: rgb(238, 40, 119);
+input {
+  display: block;
+  margin-bottom: 20px;
 }
-
-.column-1 {
-  height: 100%;
-  float: left;
-  width: 90%;
+button {
+  border: 1px solid gray;
+  background: whitesmoke;
+  margin-right: 5px;
 }
-.column-2 {
-  height: 100%;
-  float: left;
-  width: 10%;
-}
-.row {
-  height: 50px;
-  padding: 20px 50px 0px 30px;
-}
-
-.box {
-  background-color: rgb(247, 243, 242) !important;
-  color: rgb(6, 6, 6);
-  /* height: 18vh; */
-}
-
-.box-2 {
-  margin-left: 100px;
-}
-
-.avatar {
-  border-radius: 50%;
-}
-
-.column-3 {
-  float: left !important;
-  width: 33% !important;
-}
-h2 {
-  margin-top: 0px;
-  padding-top: 0px;
-}
-
-.profile {
-  border: 1.5px initial rgb(6, 6, 6);
-  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
-  max-width: 300px;
-  margin: 20px 50px;
-  text-align: center;
-  font-family: arial;
-  padding: 20px;
-  background-color: rgb(103, 96, 24);
-}
-
-.profile:hover {
-  transition: 400ms;
-  box-shadow: 0 8px 16px 0 rgba(90, 12, 58, 0.582);
-  transform: translateY(-10px);
-}
-.email {
-  color: rgb(65, 22, 90);
-  font-size: 18px;
-  overflow-wrap: anywhere;
-}
-.name {
-  font-size: 25px;
-  font-weight: bold;
-  color: rgb(6, 6, 6);
-}
-.loader {
-  margin-left: 300px;
-  margin-right: 100px;
-}
-
-@media screen and (max-width: 600px) {
-  .profile {
-    width: 100%;
-    display: block;
-    margin-bottom: 20px;
-    padding: 20px;
-  }
-
-  .name {
-    font-size: medium;
-  }
-  .column-3 {
-    float: left;
-    margin-left: 60px;
-  }
-
-  .email {
-    font-size: small;
-  }
-
-  .loader {
-    align-self: center;
-    width: 100%;
-  }
-
-  .box {
-    width: 110vh;
-  }
+button:nth-last-child(2),
+button:nth-last-child(1) {
+  background: tomato;
+  color: white;
 }

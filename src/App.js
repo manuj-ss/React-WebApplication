@@ -1,55 +1,74 @@
-import Users_card from "./ProjectComp/users";
+import {
+  useState,
+  useRef
+} from "react"; 
 import "./App.css";
 
-import React, { Component } from "react";
-
-class App extends Component {
-  constructor(props) {
-    super(props);
-
-    // Set initial state
-    this.state = { users_data: [], loading: true };
-
-    this.updateState = this.updateState.bind(this);
-  }
-
-  updateState() {
-    const link = "https://reqres.in/api/users?page=1";
-    fetch(link)
-      .then((response) => response.json())
-      .then((users) => {
-        this.setState({ users_data: users.data, loading: false });
-        console.log(users.data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }
-
-  render() {
-    return (
-      <>
-        <nav>
-          <div className="box">
-            <div className="row">
-              <div className="column1">
-                <h2>SoftPro Users</h2>
-              </div>
-              <div className="column2">
-                <button onClick={this.updateState}>Get Users</button>
-              </div>
-            </div>
-          </div>
-        </nav>
-        <div className="box2">
-          <Users_card
-            loading={this.state.loading}
-            users={this.state.users_data}
-          />
-        </div>
-      </>
-    );
-  }
-}
-
-export default App;
+function App() { 
+  const inputRef = useRef(null); 
+  const resultRef = useRef(null); 
+  const [result, setResult] = useState(0); 
+ 
+  function plus(e) { 
+    e.preventDefault(); 
+    setResult((result) => result + Number(inputRef.current.value)); 
+  }; 
+ 
+  function minus(e) { 
+  	// Add the code for the minus function 
+    e.preventDefault(); 
+    setResult((result) => result - Number(inputRef.current.value)); 
+  };
+ 
+  function times(e) { 
+    // Add the code for the plus function 
+    e.preventDefault(); 
+    setResult((result) => result * Number(inputRef.current.value)); 
+  }; 
+ 
+  function divide(e) { 
+    // Add the code for the divide function
+    e.preventDefault(); 
+    setResult((result) => result / Number(inputRef.current.value));  
+  };
+ 
+  function resetInput(e) { 
+    // Add the code for the resetInput function
+    e.preventDefault(); 
+    inputRef.current.value = 0;
+  }; 
+ 
+  function resetResult(e) { 
+  	// Add the code for the resetResult function 
+    e.preventDefault(); 
+    setResult((result) => result * 0)
+    inputRef.current.value = 0;
+  }; 
+ 
+  return ( 
+    <div className="App"> 
+      <div> 
+        <h1>A Working Calculator</h1> 
+      </div> 
+      <form> 
+        <p ref={resultRef}> 
+          {/* add the value of the current total */ result} 
+        </p> 
+        <input
+          pattern="[0-9]" 
+          ref={inputRef} 
+          type="number" 
+          placeholder="Type a number" 
+        /> 
+        <button onClick={plus}>add</button>   
+        <button onClick={minus}>subtract</button>  
+        <button onClick={times}>multiply</button> 
+        <button onClick={divide}>divide</button> 
+        <button onClick={resetInput}>reset input</button> 
+        <button onClick={resetResult}>reset result</button> 
+      </form> 
+    </div> 
+  ); 
+} 
+ 
+export default App; 
